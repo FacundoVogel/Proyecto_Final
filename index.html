@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal de Ómnibus BA | Logic Solutions</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Regiones</h2>
+                <p>Explorar Destinos</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#noroeste"><i class="fa-solid fa-map"></i> Noroeste</a>
+                <a href="#mesopotamia"><i class="fa-solid fa-droplet"></i> Mesopotamia</a>
+                <a href="#costa"><i class="fa-solid fa-umbrella-beach"></i> Costa Atlántica</a>
+                <a href="#centro"><i class="fa-solid fa-building"></i> Centro</a>
+                <a href="#patagonia" class="active"><i class="fa-solid fa-mountain"></i> Patagonia</a>
+                <a href="#cuyo"><i class="fa-solid fa-wine-glass"></i> Cuyo</a>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="btn btn-primary btn-full"><i class="fa-solid fa-magnifying-glass"></i> Planificar Viaje</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div class="logo">
+                    <h1>Terminal de Ómnibus BA</h1>
+                </div>
+                <nav class="top-nav">
+                    <a href="#" class="active">Buscar</a>
+                    <a href="#">Mis Pasajes</a>
+                    <a href="#">Mapa de la Terminal</a>
+                    <a href="#">Accesibilidad</a>
+                </nav>
+                <div class="top-actions">
+                    <button class="icon-btn"><i class="fa-regular fa-bell"></i></button>
+                    <button class="icon-btn"><i class="fa-regular fa-circle-question"></i></button>
+                    <button class="btn btn-primary">Iniciar Sesión</button>
+                </div>
+            </header>
+
+            <section class="hero-section">
+                <div class="hero-overlay">
+                    <h2>Encuentra tu próximo destino</h2>
+                    <p>Accesible, confiable y conectada con todo el país. Reserva tus pasajes desde la terminal principal de Argentina. <br><em>*Aprovechá beneficios del programa Soy Estudiante en boleterías adheridas.</em></p>
+                    
+                    <div class="search-box">
+                        <form id="form-busqueda">
+                            <div class="input-group">
+                                <label><i class="fa-solid fa-location-dot"></i> Origen</label>
+                                <input type="text" id="origen" placeholder="Ej: Pehuajó" required>
+                            </div>
+                            <div class="input-group">
+                                <label><i class="fa-solid fa-location-arrow"></i> Destino</label>
+                                <input type="text" id="destino" placeholder="Ej: Buenos Aires" required>
+                            </div>
+                            <div class="input-group">
+                                <label><i class="fa-regular fa-calendar"></i> Fecha</label>
+                                <input type="date" id="fecha" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Buscar Pasajes</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section class="rutas-integrantes">
+                <div class="section-header">
+                    <div>
+                        <h3>Explora Argentina</h3>
+                        <p>Principales destinos operados por las líneas de nuestro equipo.</p>
+                    </div>
+                    <a href="#" class="btn btn-outline">Ver todas las rutas</a>
+                </div>
+
+                <div class="cards-grid">
+                    <a href="../transportes/costa.html" class="ruta-card" style="background-image: url('https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                        <div class="card-content">
+                            <span class="badge">Ruta Popular</span>
+                            <h4>Costa Atlántica</h4>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </a>
+
+                    <a href="../transportes/sur.html" class="ruta-card" style="background-image: url('https://images.unsplash.com/photo-1518182170546-0766de6b6aa5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                        <div class="card-content">
+                            <h4>Patagonia (Sur)</h4>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </a>
+
+                    <a href="../transportes/noroeste.html" class="ruta-card" style="background-image: url('https://images.unsplash.com/photo-1544413660-299165566b1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                        <div class="card-content">
+                            <h4>Noroeste</h4>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </a>
+
+                    <a href="../transportes/centro.html" class="ruta-card" style="background-image: url('https://images.unsplash.com/photo-1582285150821-2e63c0a52011?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                        <div class="card-content">
+                            <h4>Centro</h4>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </a>
+
+                    <a href="../transportes/cuyo.html" class="ruta-card" style="background-image: url('https://images.unsplash.com/photo-1588613254942-5f6063cbab1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                        <div class="card-content">
+                            <h4>Cuyo</h4>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="servicios">
+                <div class="text-center">
+                    <h3>Servicios al Pasajero</h3>
+                    <p>Comprometidos a brindar una experiencia de viaje fluida e inclusiva.</p>
+                </div>
+                
+                <div class="servicios-grid">
+                    <div class="servicio-card">
+                        <div class="icon-circle"><i class="fa-brands fa-accessible-icon"></i></div>
+                        <h4>Accesibilidad</h4>
+                        <p>Solicita asistencia en silla de ruedas, visualiza rutas accesibles e instalaciones especializadas.</p>
+                    </div>
+                    <div class="servicio-card">
+                        <div class="icon-circle"><i class="fa-regular fa-map"></i></div>
+                        <h4>Mapa de la Terminal</h4>
+                        <p>Ubica las plataformas de embarque, boleterías y áreas de espera con nuestro mapa interactivo.</p>
+                    </div>
+                    <div class="servicio-card">
+                        <div class="icon-circle"><i class="fa-solid fa-headset"></i></div>
+                        <h4>Mesa de Ayuda</h4>
+                        <p>¿Necesitas ayuda? Contacta a nuestro personal de soporte las 24 horas, los 7 días de la semana.</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <p>© 2026 Terminal de Ómnibus de Buenos Aires. Infraestructura Segura y Accesible.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
