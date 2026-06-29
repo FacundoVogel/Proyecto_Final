@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costa Atlántica | Terminal de Ómnibus BA</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="app-container">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <div class="sidebar-logo-icon"><i class="fa-solid fa-bus"></i></div>
+                <h2>Centro de Transporte</h2>
+            </div>
+            <p>Terminal de Ómnibus BA</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="../index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="../viajes.html"><i class="fa-solid fa-magnifying-glass"></i> Consulta de Viajes</a>
+            <a href="../servicios.html"><i class="fa-solid fa-bell-concierge"></i> Servicios</a>
+            <hr>
+            <span class="nav-section-label">Medios de Transporte</span>
+            <a href="costa.html" class="active"><i class="fa-solid fa-umbrella-beach"></i> Costa Atlántica</a>
+            <a href="sur.html"><i class="fa-solid fa-mountain"></i> Patagonia Sur</a>
+            <a href="noroeste.html"><i class="fa-solid fa-map"></i> Noroeste Argentino</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div class="topbar-brand"><h1>Terminal <span>BA</span></h1></div>
+            <nav class="top-nav">
+                <a href="../index.html">Inicio</a>
+                <a href="../viajes.html">Viajes</a>
+                <a href="../servicios.html">Servicios</a>
+            </nav>
+        </header>
+
+        <section class="hero-section" style="background-image: linear-gradient(135deg, rgba(15,23,42,0.82) 0%, rgba(2,132,199,0.45) 100%), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80');">
+            <div class="hero-overlay">
+                <div class="hero-eyebrow"><i class="fa-solid fa-umbrella-beach"></i> &nbsp;Corredor Costa Atlántica</div>
+                <h2>El mar te espera<br><em>todo el año</em></h2>
+                <p>Más de 30 destinos en la costa bonaerense con salidas diarias desde la Terminal de Buenos Aires.</p>
+                <a href="../viajes.html?destino=Mar del Plata" class="btn btn-primary">Ver horarios disponibles</a>
+            </div>
+        </section>
+
+        <div class="stats-bar">
+            <div class="stat-item"><strong>30+</strong><span>Destinos costeros</span></div>
+            <div class="stat-item"><strong>8</strong><span>Plataformas exclusivas</span></div>
+            <div class="stat-item"><strong>3.5 hs</strong><span>Mínimo a Pinamar</span></div>
+            <div class="stat-item"><strong>$7.200</strong><span>Precio desde</span></div>
+        </div>
+
+        <section class="section">
+            <div class="section-header">
+                <div><h3>Destinos en la Costa</h3><p>Principales ciudades y balnearios conectados.</p></div>
+                <a href="../viajes.html?corredor=costa" class="btn btn-outline btn-sm">Ver todos los horarios</a>
+            </div>
+            <div class="cards-grid">
+                <a href="../viajes.html?destino=Mar del Plata" class="destino-card" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80')">
+                    <div class="destino-card-body"><span class="destino-card-badge">4 hs</span><h4>Mar del Plata</h4><p>desde $8.500</p></div>
+                </a>
+                <a href="../viajes.html?destino=Pinamar" class="destino-card" style="background-image:url('https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?auto=format&fit=crop&w=600&q=80')">
+                    <div class="destino-card-body"><span class="destino-card-badge">3.5 hs</span><h4>Pinamar</h4><p>desde $7.200</p></div>
+                </a>
+                <a href="../viajes.html?destino=Villa Gesell" class="destino-card" style="background-image:url('https://images.unsplash.com/photo-1540206395-68808572332f?auto=format&fit=crop&w=600&q=80')">
+                    <div class="destino-card-body"><span class="destino-card-badge">4 hs</span><h4>Villa Gesell</h4><p>desde $9.800</p></div>
+                </a>
+                <a href="../viajes.html?destino=Necochea" class="destino-card" style="background-image:url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=600&q=80')">
+                    <div class="destino-card-body"><span class="destino-card-badge">5.5 hs</span><h4>Necochea</h4><p>desde $11.200</p></div>
+                </a>
+            </div>
+        </section>
+
+        <section class="section" style="background:var(--bg-white); border-top:1px solid var(--border-color);">
+            <div class="text-center"><h3>Empresas Operadoras</h3><p>Principales compañías con servicios al corredor costero.</p></div>
+            <div class="servicios-grid">
+                <div class="servicio-card"><div class="icon-circle"><i class="fa-solid fa-bus"></i></div><h4>El Rápido Argentino</h4><p>Semi-cama y cama. Principal operador de Mar del Plata. Frecuencia cada 30 minutos en temporada alta.</p></div>
+                <div class="servicio-card"><div class="icon-circle"><i class="fa-solid fa-bus"></i></div><h4>Costera Criolla</h4><p>Servicios económicos y semi-cama. Destinos: Pinamar, Cariló, Villa Gesell y Miramar.</p></div>
+                <div class="servicio-card"><div class="icon-circle"><i class="fa-solid fa-bus"></i></div><h4>Flecha Bus</h4><p>Cama y suite ejecutiva. Servicio directo a Mar del Plata con wi-fi y USB a bordo.</p></div>
+            </div>
+        </section>
+
+        <!-- AVISO: slot para contenido del integrante -->
+        <section class="section" style="background: linear-gradient(135deg, #fff7ed, #fef3c7); border-top:3px solid var(--orange-brand);">
+            <div class="section-header">
+                <div>
+                    <h3>Contenido del Integrante — Costa</h3>
+                    <p>Este espacio está reservado para el desarrollo del integrante asignado al corredor costero.</p>
+                </div>
+            </div>
+            <div style="background:white; border-radius:var(--radius); padding:3rem; text-align:center; border:2px dashed var(--border-color);">
+                <i class="fa-solid fa-code" style="font-size:2rem; color:var(--orange-brand); margin-bottom:1rem; display:block;"></i>
+                <h4 style="font-family:'Sora',sans-serif; margin-bottom:0.5rem;">Zona de desarrollo del integrante</h4>
+                <p style="color:var(--text-gray); font-size:0.9rem;">Reemplazá este bloque con el contenido específico del medio de transporte asignado.</p>
+            </div>
+        </section>
+
+        <footer>
+            <span>© 2026 Terminal de Ómnibus de Buenos Aires · <a href="#">Logic Solutions</a></span>
+            <span><a href="../index.html">Inicio</a> · <a href="../viajes.html">Viajes</a> · <a href="../servicios.html">Servicios</a></span>
+        </footer>
+    </main>
+</div>
+</body>
+</html>

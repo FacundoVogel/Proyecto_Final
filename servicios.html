@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | Terminal de Ómnibus BA</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <div class="sidebar-logo-icon"><i class="fa-solid fa-bus"></i></div>
+                <h2>Centro de Transporte</h2>
+            </div>
+            <p>Terminal de Ómnibus BA</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="viajes.html"><i class="fa-solid fa-magnifying-glass"></i> Consulta de Viajes</a>
+            <a href="servicios.html" class="active"><i class="fa-solid fa-bell-concierge"></i> Servicios</a>
+            <hr>
+            <span class="nav-section-label">Medios de Transporte</span>
+            <a href="https://trodriguez0123.github.io/Proyecto_final_individual/" target="_blank"><i class="fa-solid fa-umbrella-beach"></i> Costa Atlántica</a>
+            <a href="./transportes/sur.html"><i class="fa-solid fa-mountain"></i> Patagonia Sur</a>
+            <a href="./transportes/noroeste.html"><i class="fa-solid fa-map"></i> Noroeste Argentino</a>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div class="topbar-brand"><h1>Terminal <span>BA</span></h1></div>
+            <nav class="top-nav">
+                <a href="index.html">Inicio</a>
+                <a href="viajes.html">Viajes</a>
+                <a href="servicios.html" class="active">Servicios</a>
+            </nav>
+        </header>
+
+        <!-- HERO SERVICIOS -->
+        <section class="hero-section" style="background-image: linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(30,41,59,0.8) 100%), url('https://images.unsplash.com/photo-1587135991058-8816b028691f?auto=format&fit=crop&w=1400&q=80');">
+            <div class="hero-overlay">
+                <div class="hero-eyebrow"><i class="fa-solid fa-bell-concierge"></i> &nbsp;Guía de servicios</div>
+                <h2>Todo lo que necesitás<br><em>en la terminal</em></h2>
+                <p>Desde accesibilidad hasta gastronomía: conocé todos los servicios disponibles para los pasajeros.</p>
+            </div>
+        </section>
+
+        <!-- TABS DE NAVEGACIÓN -->
+        <div style="background:var(--bg-white); border-bottom:1px solid var(--border-color); padding: 0 3rem; display:flex; gap:0.25rem;">
+            <button class="tab-btn active" onclick="mostrarTab('informacion')">Información General</button>
+            <button class="tab-btn" onclick="mostrarTab('plataformas')">Plataformas</button>
+            <button class="tab-btn" onclick="mostrarTab('comercios')">Comercios</button>
+            <button class="tab-btn" onclick="mostrarTab('accesibilidad')">Accesibilidad</button>
+        </div>
+
+        <style>
+        .tab-btn {
+            background: none; border: none; cursor: pointer;
+            padding: 1rem 1.25rem;
+            font-size: 0.88rem; font-weight: 600;
+            color: var(--text-gray);
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-btn.active { color: var(--orange-brand); border-bottom-color: var(--orange-brand); }
+        .tab-btn:hover { color: var(--text-dark); }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+        </style>
+
+        <!-- PANEL: INFORMACIÓN GENERAL -->
+        <div id="tab-informacion" class="tab-panel active">
+
+            <section class="section">
+                <div class="text-center">
+                    <h3>Servicios al Pasajero</h3>
+                    <p>Conocé toda la infraestructura disponible en la terminal.</p>
+                </div>
+
+                <div class="servicio-detalle">
+                    <!-- Atención -->
+                    <div class="servicio-detalle-card">
+                        <div class="servicio-detalle-header">
+                            <i class="fa-solid fa-headset"></i>
+                            <h4>Mesa de Ayuda e Informes</h4>
+                        </div>
+                        <div class="servicio-detalle-body">
+                            <ul class="servicio-lista">
+                                <li>Atención presencial en planta baja, módulo central</li>
+                                <li>Línea telefónica gratuita: 0800-555-TERM (8376)</li>
+                                <li>Atención al pasajero durante las 24 horas</li>
+                                <li>Asistencia en inglés y portugués</li>
+                                <li>Gestión de objetos perdidos y encontrados</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Horarios -->
+                    <div class="servicio-detalle-card">
+                        <div class="servicio-detalle-header">
+                            <i class="fa-regular fa-clock"></i>
+                            <h4>Horarios de Servicios</h4>
+                        </div>
+                        <div class="servicio-detalle-body">
+                            <div class="horario-grid">
+                                <div class="horario-item"><span>Terminal</span><span>24 hs</span></div>
+                                <div class="horario-item"><span>Boleterías</span><span>05:00–01:00</span></div>
+                                <div class="horario-item"><span>Consigna</span><span>06:00–23:00</span></div>
+                                <div class="horario-item"><span>Gastronomía</span><span>06:00–22:00</span></div>
+                                <div class="horario-item"><span>Farmacia</span><span>08:00–21:00</span></div>
+                                <div class="horario-item"><span>Cajero ATM</span><span>24 hs</span></div>
+                                <div class="horario-item"><span>Estacionamiento</span><span>24 hs</span></div>
+                                <div class="horario-item"><span>WiFi</span><span>24 hs</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seguridad -->
+                    <div class="servicio-detalle-card">
+                        <div class="servicio-detalle-header">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <h4>Seguridad y Emergencias</h4>
+                        </div>
+                        <div class="servicio-detalle-body">
+                            <ul class="servicio-lista">
+                                <li>Vigilancia privada las 24 horas en todas las áreas</li>
+                                <li>Sistema de cámaras de seguridad CCTV</li>
+                                <li>Botiquines de primeros auxilios en cada piso</li>
+                                <li>Desfibrilador automático disponible en planta baja</li>
+                                <li>Número de emergencias interno: interno 100</li>
+                                <li>Coordinación directa con Policía Federal</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Equipaje -->
+                    <div class="servicio-detalle-card">
+                        <div class="servicio-detalle-header">
+                            <i class="fa-solid fa-suitcase-rolling"></i>
+                            <h4>Equipaje y Consigna</h4>
+                        </div>
+                        <div class="servicio-detalle-body">
+                            <ul class="servicio-lista">
+                                <li>Guardado seguro de bultos por hora o día</li>
+                                <li>Casilleros individuales con llave en andén 1</li>
+                                <li>Tarifa base: $800 / bulto / 4 horas</li>
+                                <li>Servicio de embalaje y precinto de valijas</li>
+                                <li>Sistema de recuperación por número de ticket</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mapa de la terminal -->
+                <div class="section-header" style="margin-top:1rem;">
+                    <div>
+                        <h3>Mapa de la Terminal</h3>
+                        <p>Orientate dentro del edificio.</p>
+                    </div>
+                </div>
+                <div class="mapa-placeholder">
+                    <i class="fa-regular fa-map"></i>
+                    <p>Mapa interactivo de la terminal</p>
+                    <span style="font-size:0.8rem; color:#94a3b8;">Planta baja · Primer piso · Segundo piso</span>
+                    <button class="btn btn-outline btn-sm" style="margin-top:0.5rem;" onclick="alert('El mapa interactivo estará disponible próximamente.')">
+                        <i class="fa-solid fa-expand"></i> Ver mapa completo
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- PANEL: PLATAFORMAS -->
+        <div id="tab-plataformas" class="tab-panel">
+            <section class="section">
+                <div class="text-center">
+                    <h3>Plataformas de Embarque</h3>
+                    <p>28 plataformas organizadas por corredor geográfico.</p>
+                </div>
+
+                <div class="section-header">
+                    <div><h3 style="font-size:1rem; color:var(--text-gray);">Costa Atlántica — Plataformas 1 al 8</h3></div>
+                </div>
+                <div class="plataformas-grid" style="margin-bottom:2rem;">
+                    <div class="plataforma-card"><div class="plataforma-numero">1</div><h5>Plataforma 1</h5><p>Mar del Plata Norte</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">2</div><h5>Plataforma 2</h5><p>Mar del Plata Sur</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">3</div><h5>Plataforma 3</h5><p>Necochea / Quequén</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">4</div><h5>Plataforma 4</h5><p>Miramar / Gesell</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">5</div><h5>Plataforma 5</h5><p>Pinamar / Cariló</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">6</div><h5>Plataforma 6</h5><p>San Clemente / Madariaga</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">7</div><h5>Plataforma 7</h5><p>Reserva / Cancelaciones</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">8</div><h5>Plataforma 8</h5><p>Destinos varios costa</p></div>
+                </div>
+
+                <div class="section-header">
+                    <div><h3 style="font-size:1rem; color:var(--text-gray);">Centro / Cuyo / Norte — Plataformas 9 al 18</h3></div>
+                </div>
+                <div class="plataformas-grid" style="margin-bottom:2rem;">
+                    <div class="plataforma-card"><div class="plataforma-numero">9</div><h5>Plataforma 9</h5><p>Córdoba / Río Cuarto</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">10</div><h5>Plataforma 10</h5><p>Rosario / Santa Fe</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">11</div><h5>Plataforma 11</h5><p>Bahía Blanca</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">12</div><h5>Plataforma 12</h5><p>Santa Rosa / La Pampa</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">13</div><h5>Plataforma 13</h5><p>San Luis / Mendoza</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">14</div><h5>Plataforma 14</h5><p>San Juan / La Rioja</p></div>
+                </div>
+
+                <div class="section-header">
+                    <div><h3 style="font-size:1rem; color:var(--text-gray);">Patagonia / NOA — Plataformas 15 al 28</h3></div>
+                </div>
+                <div class="plataformas-grid">
+                    <div class="plataforma-card"><div class="plataforma-numero">15</div><h5>Plataforma 15</h5><p>Bariloche / Neuquén</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">16</div><h5>Plataforma 16</h5><p>Puerto Madryn / Chubut</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">17</div><h5>Plataforma 17</h5><p>Río Gallegos / Ushuaia</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">18</div><h5>Plataforma 18</h5><p>Comodoro Rivadavia</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">21</div><h5>Plataforma 21</h5><p>Tucumán / Catamarca</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">22</div><h5>Plataforma 22</h5><p>Salta</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">23</div><h5>Plataforma 23</h5><p>Jujuy / Purmamarca</p></div>
+                    <div class="plataforma-card"><div class="plataforma-numero">28</div><h5>Plataforma 28</h5><p>Internacional</p></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PANEL: COMERCIOS -->
+        <div id="tab-comercios" class="tab-panel">
+            <section class="section">
+                <div class="text-center">
+                    <h3>Comercios y Gastronomía</h3>
+                    <p>Tiendas, cafeterías y restaurantes en la terminal.</p>
+                </div>
+                <div class="servicios-grid">
+                    <div class="servicio-card">
+                        <div class="icon-circle"><i class="fa-solid fa-mug-hot"></i></div>
+                        <h4>Café Termini</h4>
+                        <p>Planta baja · Cafetería y pastelería. Desayunos, almuerzos y meriendas. Lunes a domingo 06:00–22:00.</p>
+                    </div>
+                    <div class="servicio-card">
+                        <div class="icon-circle"><i class="fa-solid fa-burger"></i></div>
+                        <h4>Fast Food Andén</h4>
+                        <p>Primer piso · Sándwiches, empanadas y minutas. Atención rápida para viajeros con poco tiempo.</p>
+                    </div>
+                    <div class="servicio-card">
+                        <div class="icon-circle"><i class="fa-solid fa-pills"></i></div>
+                        <h4>Farmacia del Viajero</h4>
+                        <p>Planta baja · Medicamentos, artículos de viaje y primeros auxilios. Lunes a sábado 08:00–21:00.</p>
+                    </div>
+                    <div class="servicio-card">
+                        <div class="icon-circle"><i class="fa-solid fa-book-open"></i></div>
+                        <h4>Librería y Kiosco</h4>
+                        <p>Planta baja · Revistas, libros, snacks y artículos de viaje. Apertura 05:30 todos los días.</p>
+                    </div>
+                    <div class="servicio-card">
+                        <div class="icon-circle"><i class="fa-solid fa-money-bill-wave"></i></div>
+                        <h4>Cajeros ATM</h4>
+                        <p>Disponibles en planta baja (×3) y primer piso (×2). Distintas redes bancarias disponibles.</p>
+                    </div>
+                    <div class="servicio-card">
+                        <div class="icon-circle"><i class="fa-solid fa-sim-card"></i></div>
+                        <h4>Centro de Servicios</h4>
+                        <p>Venta de carga de celulares, artículos de tecnología y accesorios para el viaje.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PANEL: ACCESIBILIDAD -->
+        <div id="tab-accesibilidad" class="tab-panel">
+            <section class="section">
+                <div class="text-center">
+                    <h3>Accesibilidad Universal</h3>
+                    <p>La terminal está preparada para recibir a todos los pasajeros.</p>
+                </div>
+
+                <div class="servicio-detalle">
+                    <div class="servicio-detalle-card">
+                        <div class="servicio-detalle-header">
+                            <i class="fa-brands fa-accessible-icon"></i>
+                            <h4>Movilidad Reducida</h4>
+                        </div>
+                        <div class="servicio-detalle-body">
+                            <ul class="servicio-lista">
+                                <li>Rampas de acceso en todos los ingresos</li>
+                                <li>Ascensores en todos los pisos (capacidad 8 personas)</li>
+                                <li>Baños adaptados en planta baja y primer piso</li>
+                                <li>Asistencia con sillas de ruedas sin cargo</li>
+                                <li>Estacionamiento preferencial en playa cubierta</li>
+                                <li>Plataformas con acceso nivelado al vehículo</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="servicio-detalle-card">
+                        <div class="servicio-detalle-header">
+                            <i class="fa-solid fa-ear-deaf"></i>
+                            <h4>Discapacidad Auditiva y Visual</h4>
+                        </div>
+                        <div class="servicio-detalle-body">
+                            <ul class="servicio-lista">
+                                <li>Pantallas de información visual en todos los andenes</li>
+                                <li>Sistema de audio en todas las áreas de espera</li>
+                                <li>Señalética en Braille en botoneras de ascensores</li>
+                                <li>Intérpretes de lengua de señas disponibles a solicitud</li>
+                                <li>Piso podotáctil de guía desde ingreso a plataformas</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="servicio-detalle-card">
+                        <div class="servicio-detalle-header">
+                            <i class="fa-solid fa-baby"></i>
+                            <h4>Familias con Niños</h4>
+                        </div>
+                        <div class="servicio-detalle-body">
+                            <ul class="servicio-lista">
+                                <li>Sala de lactancia climatizada en primer piso</li>
+                                <li>Cambiadores en todos los baños</li>
+                                <li>Zona de juegos infantiles supervisada</li>
+                                <li>Prioridad de embarque para familias con menores</li>
+                                <li>Asientos preferenciales reservados en sala de espera</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="servicio-detalle-card">
+                        <div class="servicio-detalle-header">
+                            <i class="fa-solid fa-dog"></i>
+                            <h4>Mascotas</h4>
+                        </div>
+                        <div class="servicio-detalle-body">
+                            <ul class="servicio-lista">
+                                <li>Área peatonal para mascotas en exterior (zona verde)</li>
+                                <li>Bebederos de agua disponibles en acceso principal</li>
+                                <li>Consultar con cada empresa la política de transporte de mascotas</li>
+                                <li>Bolsas higiénicas disponibles en kiosco de planta baja</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <span>© 2026 Terminal de Ómnibus de Buenos Aires · <a href="#">Logic Solutions</a></span>
+            <span><a href="index.html">Inicio</a> · <a href="viajes.html">Viajes</a> · <a href="#">Contacto</a></span>
+        </footer>
+    </main>
+</div>
+
+<script>
+function mostrarTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+</body>
+</html>

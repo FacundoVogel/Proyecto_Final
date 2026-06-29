@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Viajes | Terminal de Ómnibus BA</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <div class="sidebar-logo-icon"><i class="fa-solid fa-bus"></i></div>
+                <h2>Centro de Transporte</h2>
+            </div>
+            <p>Terminal de Ómnibus BA</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="viajes.html" class="active"><i class="fa-solid fa-magnifying-glass"></i> Consulta de Viajes</a>
+            <a href="servicios.html"><i class="fa-solid fa-bell-concierge"></i> Servicios</a>
+            <hr>
+            <span class="nav-section-label">Medios de Transporte</span>
+            <a href="https://trodriguez0123.github.io/Proyecto_final_individual/" target="_blank"><i class="fa-solid fa-umbrella-beach"></i> Costa Atlántica</a>
+            <a href="./transportes/sur.html"><i class="fa-solid fa-mountain"></i> Patagonia Sur</a>
+            <a href="./transportes/noroeste.html"><i class="fa-solid fa-map"></i> Noroeste Argentino</a>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div class="topbar-brand"><h1>Terminal <span>BA</span></h1></div>
+            <nav class="top-nav">
+                <a href="index.html">Inicio</a>
+                <a href="viajes.html" class="active">Viajes</a>
+                <a href="servicios.html">Servicios</a>
+            </nav>
+        </header>
+
+        <!-- HERO VIAJES -->
+        <section class="hero-section" style="padding: 3rem;">
+            <div class="hero-overlay">
+                <div class="hero-eyebrow"><i class="fa-solid fa-magnifying-glass"></i> &nbsp;Consulta de horarios</div>
+                <h2>Encontrá tu <em>próximo viaje</em></h2>
+                <p>Buscá entre más de 500 destinos con salidas diarias desde Buenos Aires.</p>
+            </div>
+        </section>
+
+        <!-- FILTROS -->
+        <div class="filtros-bar">
+            <div class="input-group">
+                <label for="f-origen">Origen</label>
+                <input type="text" id="f-origen" placeholder="Buenos Aires" value="Buenos Aires">
+            </div>
+            <div class="input-group">
+                <label for="f-destino">Destino</label>
+                <input type="text" id="f-destino" placeholder="Ej: Mar del Plata">
+            </div>
+            <div class="input-group">
+                <label for="f-fecha">Fecha</label>
+                <input type="date" id="f-fecha">
+            </div>
+            <div class="input-group">
+                <label for="f-corredor">Corredor</label>
+                <select id="f-corredor">
+                    <option value="">Todos</option>
+                    <option value="costa">Costa Atlántica</option>
+                    <option value="sur">Patagonia</option>
+                    <option value="noroeste">Noroeste</option>
+                    <option value="cuyo">Cuyo</option>
+                    <option value="centro">Centro</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="f-clase">Clase</label>
+                <select id="f-clase">
+                    <option value="">Todas</option>
+                    <option value="comun">Común</option>
+                    <option value="semi">Semi-cama</option>
+                    <option value="cama">Cama</option>
+                    <option value="suite">Suite</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" onclick="filtrarViajes()">
+                <i class="fa-solid fa-filter"></i> Filtrar
+            </button>
+            <button class="btn btn-outline" onclick="limpiarFiltros()">
+                <i class="fa-solid fa-xmark"></i> Limpiar
+            </button>
+        </div>
+
+        <!-- TABLA DE RESULTADOS -->
+        <section class="section" style="padding-top: 2rem;">
+            <div class="section-header">
+                <div>
+                    <h3 id="tabla-titulo">Partidas de hoy</h3>
+                    <p id="tabla-subtitulo">Mostrando todos los servicios disponibles</p>
+                </div>
+                <div style="display:flex; gap:0.75rem; align-items:center;">
+                    <span id="resultado-count" style="font-size:0.85rem; color:var(--text-gray);"></span>
+                    <button class="btn btn-outline btn-sm" onclick="exportar()">
+                        <i class="fa-solid fa-download"></i> Exportar
+                    </button>
+                </div>
+            </div>
+
+            <div class="tabla-wrapper">
+                <table id="tabla-viajes">
+                    <thead>
+                        <tr>
+                            <th>Salida</th>
+                            <th>Llegada</th>
+                            <th>Destino</th>
+                            <th>Empresa</th>
+                            <th>Clase</th>
+                            <th>Plataforma</th>
+                            <th>Estado</th>
+                            <th>Precio</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-body">
+                        <!-- JS renderiza aquí -->
+                    </tbody>
+                </table>
+                <div id="empty-state" class="empty-state" style="display:none;">
+                    <i class="fa-solid fa-bus-simple"></i>
+                    <h4>No se encontraron viajes</h4>
+                    <p>Probá con otro destino o fecha.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INFO ADICIONAL -->
+        <section class="section" style="padding-top: 0;">
+            <div class="section-header">
+                <div>
+                    <h3>Leyenda de estados</h3>
+                    <p>Referencia del estado operativo de cada servicio.</p>
+                </div>
+            </div>
+            <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                <span class="badge-estado badge-puntual"><i class="fa-solid fa-circle-check"></i> Puntual — Sale en horario</span>
+                <span class="badge-estado badge-demorado"><i class="fa-solid fa-clock"></i> Demorado — Verificar plataforma</span>
+                <span class="badge-estado badge-cancelado"><i class="fa-solid fa-circle-xmark"></i> Cancelado — Solicitar reembolso en boletería</span>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <span>© 2026 Terminal de Ómnibus de Buenos Aires · <a href="#">Logic Solutions</a></span>
+            <span><a href="servicios.html">Servicios</a> · <a href="index.html">Inicio</a> · <a href="#">Contacto</a></span>
+        </footer>
+    </main>
+</div>
+
+<script>
+// ---- DATOS DE EJEMPLO ----
+const VIAJES = [
+    { id:1, salida:'06:00', llegada:'10:30', destino:'Mar del Plata', empresa:'El Rápido', clase:'Semi-cama', corredor:'costa', plataforma:'3', estado:'puntual', precio:9200 },
+    { id:2, salida:'07:30', llegada:'10:45', destino:'Pinamar', empresa:'Costera Criolla', clase:'Común', corredor:'costa', plataforma:'7', estado:'puntual', precio:7400 },
+    { id:3, salida:'08:00', llegada:'12:30', destino:'Mar del Plata', empresa:'Flecha Bus', clase:'Cama', corredor:'costa', plataforma:'3', estado:'demorado', precio:14500 },
+    { id:4, salida:'09:00', llegada:'15:20', destino:'Bahía Blanca', empresa:'El Cóndor', clase:'Semi-cama', corredor:'sur', plataforma:'11', estado:'puntual', precio:12000 },
+    { id:5, salida:'10:00', llegada:'08:00+1', destino:'Bariloche', empresa:'Via Bariloche', clase:'Suite', corredor:'sur', plataforma:'15', estado:'puntual', precio:38500 },
+    { id:6, salida:'11:30', llegada:'05:30+1', destino:'Salta', empresa:'Andesmar', clase:'Cama', corredor:'noroeste', plataforma:'22', estado:'puntual', precio:29000 },
+    { id:7, salida:'12:00', llegada:'16:00', destino:'Rosario', empresa:'Flecha Bus', clase:'Común', corredor:'centro', plataforma:'6', estado:'puntual', precio:5800 },
+    { id:8, salida:'13:15', llegada:'13:15+1', destino:'Mendoza', empresa:'TAC', clase:'Semi-cama', corredor:'cuyo', plataforma:'18', estado:'demorado', precio:19500 },
+    { id:9, salida:'14:00', llegada:'18:30', destino:'Mar del Plata', empresa:'Montemar', clase:'Común', corredor:'costa', plataforma:'4', estado:'cancelado', precio:8900 },
+    { id:10, salida:'15:30', llegada:'20:00', destino:'Villa Gesell', empresa:'El Rápido', clase:'Semi-cama', corredor:'costa', plataforma:'5', estado:'puntual', precio:9800 },
+    { id:11, salida:'16:00', llegada:'20:30', destino:'Mar del Plata', empresa:'Costera Criolla', clase:'Cama', corredor:'costa', plataforma:'3', estado:'puntual', precio:15200 },
+    { id:12, salida:'18:00', llegada:'12:00+1', destino:'Tucumán', empresa:'Andesmar', clase:'Semi-cama', corredor:'noroeste', plataforma:'21', estado:'puntual', precio:24000 },
+    { id:13, salida:'19:30', llegada:'11:00+1', destino:'Puerto Madryn', empresa:'El Cóndor', clase:'Cama', corredor:'sur', plataforma:'16', estado:'puntual', precio:32000 },
+    { id:14, salida:'20:00', llegada:'00:30', destino:'Córdoba', empresa:'Flecha Bus', clase:'Suite', corredor:'centro', plataforma:'9', estado:'puntual', precio:18500 },
+    { id:15, salida:'22:00', llegada:'16:00+1', destino:'Jujuy', empresa:'Andesmar', clase:'Cama', corredor:'noroeste', plataforma:'23', estado:'puntual', precio:31500 },
+];
+
+let viajesFiltrados = [...VIAJES];
+
+function estadoBadge(estado) {
+    const map = {
+        puntual: `<span class="badge-estado badge-puntual"><i class="fa-solid fa-circle-check"></i> Puntual</span>`,
+        demorado: `<span class="badge-estado badge-demorado"><i class="fa-solid fa-clock"></i> Demorado</span>`,
+        cancelado: `<span class="badge-estado badge-cancelado"><i class="fa-solid fa-circle-xmark"></i> Cancelado</span>`,
+    };
+    return map[estado] || estado;
+}
+
+function renderTabla(viajes) {
+    const tbody = document.getElementById('tabla-body');
+    const empty = document.getElementById('empty-state');
+    document.getElementById('resultado-count').textContent = viajes.length + ' resultado' + (viajes.length !== 1 ? 's' : '');
+
+    if (viajes.length === 0) {
+        tbody.innerHTML = '';
+        empty.style.display = 'block';
+        return;
+    }
+    empty.style.display = 'none';
+
+    tbody.innerHTML = viajes.map(v => `
+        <tr>
+            <td><span class="hora-salida">${v.salida}</span></td>
+            <td style="color:var(--text-gray)">${v.llegada}</td>
+            <td><strong>${v.destino}</strong></td>
+            <td style="color:var(--text-gray); font-size:0.85rem;">${v.empresa}</td>
+            <td><span style="font-size:0.82rem; font-weight:600; color:var(--text-mid)">${v.clase}</span></td>
+            <td><span class="plataforma-num">${v.plataforma}</span></td>
+            <td>${estadoBadge(v.estado)}</td>
+            <td><strong>$${v.precio.toLocaleString('es-AR')}</strong></td>
+            <td>${v.estado !== 'cancelado' ? `<a href="#" class="btn btn-primary btn-sm" onclick="comprar(event, ${v.id})">Comprar</a>` : '<span style="color:var(--text-gray);font-size:0.82rem">No disp.</span>'}</td>
+        </tr>
+    `).join('');
+}
+
+function filtrarViajes() {
+    const destino = document.getElementById('f-destino').value.toLowerCase().trim();
+    const corredor = document.getElementById('f-corredor').value;
+    const clase = document.getElementById('f-clase').value;
+
+    viajesFiltrados = VIAJES.filter(v => {
+        const matchDestino = !destino || v.destino.toLowerCase().includes(destino);
+        const matchCorredor = !corredor || v.corredor === corredor;
+        const matchClase = !clase || v.clase.toLowerCase().replace('-', '') === clase.replace('-', '');
+        return matchDestino && matchCorredor && matchClase;
+    });
+
+    const tit = destino ? `Viajes a "${destino.charAt(0).toUpperCase() + destino.slice(1)}"` : 'Todos los viajes';
+    document.getElementById('tabla-titulo').textContent = tit;
+    document.getElementById('tabla-subtitulo').textContent = `Fecha: ${document.getElementById('f-fecha').value || 'hoy'}`;
+
+    renderTabla(viajesFiltrados);
+}
+
+function limpiarFiltros() {
+    document.getElementById('f-destino').value = '';
+    document.getElementById('f-corredor').value = '';
+    document.getElementById('f-clase').value = '';
+    document.getElementById('f-fecha').valueAsDate = new Date();
+    document.getElementById('tabla-titulo').textContent = 'Partidas de hoy';
+    document.getElementById('tabla-subtitulo').textContent = 'Mostrando todos los servicios disponibles';
+    renderTabla(VIAJES);
+}
+
+function comprar(e, id) {
+    e.preventDefault();
+    const v = VIAJES.find(x => x.id === id);
+    alert(`Redirigiendo a compra de boleto:\n${v.empresa} — ${v.destino}\nSalida: ${v.salida} · Clase: ${v.clase}\nPrecio: $${v.precio.toLocaleString('es-AR')}\n\n(Funcionalidad de pago no implementada en el prototipo)`);
+}
+
+function exportar() {
+    alert('Exportación de tabla en formato CSV.\n(No implementado en el prototipo)');
+}
+
+// Init
+document.getElementById('f-fecha').valueAsDate = new Date();
+
+// Leer params de URL
+const params = new URLSearchParams(window.location.search);
+if (params.get('destino')) {
+    document.getElementById('f-destino').value = params.get('destino');
+    if (params.get('fecha')) document.getElementById('f-fecha').value = params.get('fecha');
+    filtrarViajes();
+} else {
+    renderTabla(VIAJES);
+}
+</script>
+</body>
+</html>
